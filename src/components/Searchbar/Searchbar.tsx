@@ -26,7 +26,7 @@ const Searchbar = () => {
         placeholder='Search...'
         value={searchQuery}
         onChange={handleSearch}
-        className='w-full border p-2 rounded-md'
+        className='w-full border p-2 rounded-3xl'
       />
       {isSearching && <div className='mt-2 text-gray-600'>Searching...</div>}
       {searchResults.map(result => (

@@ -1,0 +1,15 @@
+export enum MonsterSubTypeEnum {
+  Normal = 'Normal',
+  Effect = 'Effect',
+  Flip = 'Flip',
+  Gemini = 'Gemini',
+  Pendulum = 'Pendulum',
+  Spirit = 'Spirit',
+  Toon = 'Toon',
+  Tuner = 'Tuner',
+  Union = 'Union',
+  Fusion = 'Fusion',
+  Synchro = 'Synchro',
+  Xyz = 'Xyz',
+  Link = 'Link',
+}
