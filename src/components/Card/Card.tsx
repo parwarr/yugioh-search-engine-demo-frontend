@@ -21,9 +21,11 @@ const Card = () => {
 
   return (
     <>
-      <div className='container flex-shrink-0 bg-gray-700 border border-solid border-cyan-50 rounded-xl bg-opacity-5'>
+      <div className='container flex-shrink-0 border border-solid border-cyan-50  rounded-xl bg-opacity-5'>
         {cards.map((card: CardItemType, index) => (
-          <CardItem key={index++} card={card} />
+          <a className='text-slate-50 hover:text-slate-50' href={card.name} target='_self' rel='name'>
+            <CardItem key={index++} card={card} />
+          </a>
         ))}
       </div>
     </>

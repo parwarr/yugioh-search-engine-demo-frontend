@@ -3,10 +3,22 @@ import NavItem from '../NavItem/NavItem';
 
 const Navigation = () => {
   return (
-    <nav>
-      <Link to='/'>
-        <NavItem title='Home' />
-      </Link>
+    <nav className='flex flex-row'>
+      <div>
+        <Link to='/'>
+          <NavItem title='Home' />
+        </Link>
+      </div>
+      <div>
+        <Link to='/about'>
+          <NavItem title='About' />
+        </Link>
+      </div>
+      <div>
+        <Link to='https://github.com/parwarr?tab=repositories'>
+          <NavItem title='Github' />
+        </Link>
+      </div>
     </nav>
   );
 };

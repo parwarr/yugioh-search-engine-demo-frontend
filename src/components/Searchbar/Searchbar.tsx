@@ -1,3 +1,4 @@
+import { SearchIcon } from 'lucide-react';
 import { useState } from 'react';
 
 const Searchbar = () => {
@@ -21,13 +22,19 @@ const Searchbar = () => {
 
   return (
     <div className='max-w-md mx-auto p-4'>
-      <input
-        type='text'
-        placeholder='Search...'
-        value={searchQuery}
-        onChange={handleSearch}
-        className='w-full border p-2 rounded-3xl'
-      />
+      <div className='relative flex'>
+        <input
+          type='text'
+          placeholder='Search...'
+          value={searchQuery}
+          onChange={handleSearch}
+          className='w-full border p-2 rounded-xl pr-10'
+        />
+        <div className='absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none'>
+          <SearchIcon className='w-6 h-6 text-gray-600' />
+        </div>
+      </div>
+
       {isSearching && <div className='mt-2 text-gray-600'>Searching...</div>}
       {searchResults.map(result => (
         <div key={result.id} className='mt-2 p-2 rounded-md'>
