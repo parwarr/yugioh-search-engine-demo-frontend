@@ -1,4 +1,4 @@
-import Card from '../../components/Card/Card';
+import Pagination from '../../components/Pagination/Pagination';
 import Searchbar from '../../components/Searchbar/Searchbar';
 
 const Home = () => {
@@ -6,7 +6,7 @@ const Home = () => {
     <>
       <h1 className='text-4xl text-center mt-4 mb-4'>Card Database</h1>
       <Searchbar />
-      <Card />
+      <Pagination />
     </>
   );
 };
