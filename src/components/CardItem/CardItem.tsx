@@ -1,12 +1,11 @@
 import { CardItemType } from '../../types/CardItem.type';
+import formatName from '../helpers/FormatName';
 
 interface Props {
   card: CardItemType;
 }
 
 const CardItem = ({ card }: Props) => {
-  const displayName = card.name.replace(/-/g, ' ');
-
   return (
     <div className='container mx-auto mb-4 mt-4 max-w-xl'>
       <a className='text-slate-50 hover:text-slate-50' href={`/name?name=${card.name}`} target='_self' rel='name'>
@@ -16,7 +15,7 @@ const CardItem = ({ card }: Props) => {
               <img className='h-48 w-full object-contain sm:w-48' src={card.cardImagePresignedUrl} alt='Card' />
             </div>
             <div className='mt-4 sm:mt-0 sm:ml-4'>
-              <div className='text-xl font-medium'>{displayName}</div>
+              <div className='text-xl font-medium'>{formatName(card.name)}</div>
               <p className='mt-1'>{card.desc}</p>
             </div>
           </div>

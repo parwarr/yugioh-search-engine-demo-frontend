@@ -10,7 +10,6 @@ const Searchbar = () => {
   const search = async (query: string) => {
     setIsSearching(true);
     const results = await getCard(query);
-    console.log(results);
     setSearchResults(results);
     setIsSearching(false);
   };

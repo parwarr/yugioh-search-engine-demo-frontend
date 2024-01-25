@@ -1,49 +1,67 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getCard } from '../../service/api/api.service';
+import { CardItemType } from '../../types/CardItem.type';
+import FormatName from '../helpers/FormatName';
+import formatString from '../helpers/FormatString';
 
 const OneCard = () => {
-  const [card, setCard] = useState({});
+  const [card, setCard] = useState<CardItemType>({} as CardItemType);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const getOneCard = async name => {
-      const response = await getCard(name);
-      setCard(response.data);
-      console.log(response);
-    };
-
-    // Parse the query string
     const queryParams = new URLSearchParams(location.search);
     const name = queryParams.get('name');
 
-    getOneCard(name);
-  }, [location]); // Add location to the dependency array
+    if (!name) {
+      navigate('/');
+      return;
+    }
 
-  console.log(card);
+    getCard(name).then(response => {
+      setCard(response.data);
+    });
+  }, [location.search]);
+
+  // Define card stats for mapping
+  const cardStats = [
+    { title: 'Attribute', value: formatString(card.monsterAttribute) },
+    { title: 'Typing', value: formatString(card.monsterType) },
+    { title: 'Type', value: formatString(card.cardType) },
+    { title: 'Level/Rank', value: card.level },
+    { title: 'ATK', value: card.atk },
+    { title: 'DEF', value: card.def },
+  ];
+
   return (
-    <div className='flex justify-center items-center min-h-screen p-4'>
-      <div className='flex max-w-4xl bg-gray-800 text-white rounded-lg border border-gray-700 shadow-xl'>
-        <img
-          className='flex-none w-1/3 rounded-l-lg object-cover'
-          src='https://images.ygoprodeck.com/images/cards/12482652.jpg'
-          alt='Card'
-        />
-        <div className='p-8 flex flex-col justify-between w-2/3'>
-          <h3 className='text-yellow-300 text-2xl font-bold mb-2'>{card.name}</h3>
-          <div className='mb-8'>
-            <div className='text-sm text-gray-400'>Type</div>
-            <div className='text-white'>{card.type}</div>
-            <div className='text-sm text-gray-400'>Attribute</div>
-            <div className='text-white'>{card.attribute}</div>
-            <div className='text-sm text-gray-400'>Level/Rank</div>
-            <div className='text-white'>{card.level}</div>
-            <div className='text-sm text-gray-400'>TCG Date</div>
-            <div className='text-white'>ad</div>
-            <div className='text-sm text-gray-400'>OCG Date</div>
-            <div className='text-white'>asd</div>
+    <div className='flex justify-center items-center min-h-screen bg-gray-900'>
+      <div className='flex flex-col md:flex-row max-w-4xl bg-gray-800 text-white rounded-3xl p-5 border border-slate-50 shadow-xl'>
+        <div className='md:w-1/2 flex justify-center'>
+          <img
+            className='w-[80%] h-auto object-cover rounded-lg shadow-lg hover:scale-110 transition duration-300 ease-in-out'
+            src={card.cardImagePresignedUrl}
+            alt={FormatName(card.name)}
+          />
+        </div>
+        <div className='md:w-1/2 p-4 flex flex-col justify-between'>
+          <div>
+            <h3 className='text-slate-50 text-3xl font-bold mb-3'>{FormatName(card.name)}</h3>
+            <div className='grid grid-cols-2 gap-4'>
+              {cardStats.map(stat => (
+                <div key={stat.title} className='flex items-center bg-gray-700 bg-opacity-50 rounded p-2'>
+                  <div>
+                    <div className='text-sm text-gray-400'>{stat.title}</div>
+                    <div className='text-lg text-white'>{stat.value}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <p className='text-gray-400'>{card.desc}</p>
+          <div className='mt-4'>
+            <div className='text-sm text-gray-400'>Card Text</div>
+            <p className='text-gray-400 mt-2'>{card.desc}</p>
+          </div>
         </div>
       </div>
     </div>

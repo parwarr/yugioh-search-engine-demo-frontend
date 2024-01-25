@@ -15,9 +15,8 @@ export const getAllCards = async () => {
 
 export const getCard = async (name: string) => {
   try {
-    const displayName = name.replace(/-/g, ' ');
-    const response = await axios.get(`${API_BASE_URL}/name?name=${displayName}`);
-    return response.data;
+    const response = await axios.get(`${API_BASE_URL}/name?name=${name}`);
+    return response;
   } catch (error) {
     throw error;
   }
