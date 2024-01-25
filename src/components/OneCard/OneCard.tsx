@@ -24,7 +24,6 @@ const OneCard = () => {
     });
   }, [location.search]);
 
-  // Define card stats for mapping
   const cardStats = [
     { title: 'Attribute', value: formatString(card.monsterAttribute) },
     { title: 'Typing', value: formatString(card.monsterType) },
@@ -57,10 +56,10 @@ const OneCard = () => {
                 </div>
               ))}
             </div>
-          </div>
-          <div className='mt-4'>
-            <div className='text-sm text-gray-400'>Card Text</div>
-            <p className='text-gray-400 mt-2'>{card.desc}</p>
+            <div className='mt-4'>
+              <div className='text-lg text-white'>Card Text</div>
+              <p className='text-white font-bold mt-2'>{card.desc}</p>
+            </div>
           </div>
         </div>
       </div>
