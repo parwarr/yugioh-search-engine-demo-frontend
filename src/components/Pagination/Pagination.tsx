@@ -5,7 +5,7 @@ import { getAllCards } from '../../service/api/api.service';
 import Card from '../Card/Card';
 
 const Pagination = () => {
-  const itemsPerPage = 3;
+  const itemsPerPage = 4;
 
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);

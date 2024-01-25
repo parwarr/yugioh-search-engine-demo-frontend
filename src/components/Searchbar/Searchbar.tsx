@@ -1,5 +1,6 @@
 import { SearchIcon } from 'lucide-react';
 import { useState } from 'react';
+import { getCard } from '../../service/api/api.service';
 
 const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -8,8 +9,8 @@ const Searchbar = () => {
 
   const search = async (query: string) => {
     setIsSearching(true);
-    // const results = await searchApi(query);
-    const results = query ? [{ id: 1, name: 'Result 1' }] : [];
+    const results = await getCard(query);
+    console.log(results);
     setSearchResults(results);
     setIsSearching(false);
   };

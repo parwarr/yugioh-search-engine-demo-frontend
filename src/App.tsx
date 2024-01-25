@@ -6,14 +6,16 @@ import Home from './pages/Home/Home';
 
 function App() {
   return (
-    <div>
+    <div className='flex flex-col min-h-screen'>
       <Header />
       <div>
         <Routes>
           <Route index path='/' element={<Home />} />
         </Routes>
       </div>
-      <Footer />
+      <div className='mt-auto'>
+        <Footer />
+      </div>
     </div>
   );
 }

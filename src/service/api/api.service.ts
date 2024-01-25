@@ -7,7 +7,6 @@ const API_BASE_URL = 'http://localhost:4000';
 export const getAllCards = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/Cards`);
-    console.log(response.data);
     return response;
   } catch (error) {
     throw error;
@@ -16,7 +15,8 @@ export const getAllCards = async () => {
 
 export const getCard = async (name: string) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/card/${name}`);
+    const displayName = name.replace(/-/g, ' ');
+    const response = await axios.get(`${API_BASE_URL}/name?name=${displayName}`);
     return response.data;
   } catch (error) {
     throw error;
