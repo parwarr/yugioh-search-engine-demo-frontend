@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getAllCards } from '../../service/api/api.service';
 import { CardItemType } from '../../types/CardItem.type';
 import Navigation from '../Navigation/Navigation';
-import Searchbar from '../Searchbar/Searchbar';
+import { ModeToggle } from '../Theme-provider/Mode-Toggle/Mode-Toggle';
 
 const Header = () => {
   const [data, setData] = useState<CardItemType[]>([]);
@@ -24,7 +24,7 @@ const Header = () => {
           <Navigation />
         </div>
         <div className='flex items-center'>
-          <Searchbar placeholder='Enter a Card Name...' data={data} />
+          <ModeToggle />
         </div>
       </div>
     </header>

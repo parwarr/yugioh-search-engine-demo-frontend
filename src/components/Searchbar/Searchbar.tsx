@@ -47,9 +47,9 @@ const Searchbar = ({ placeholder, data }: Props) => {
             <a
               key={result.id}
               href={`/name?name=${result.name}`}
-              className='group block p-1 mb-1 rounded-md overflow-hidden hover:bg-white transition duration-150 ease-in-out'
+              className='group block p-2 m-2 overflow-hidden hover:bg-white rounded-xl transition duration-150 ease-in-out'
             >
-              <div className='flex items-center space-x-3 mb-3'>
+              <div className='flex items-center space-x-3'>
                 <img src={result.cardImagePresignedUrl} alt={result.name} className='w-10 h-auto rounded-md' />
                 <span className='flex-1 min-w-0'>
                   <p className='text-sm font-medium text-gray-900 truncate group-hover:text-blue-600'>
