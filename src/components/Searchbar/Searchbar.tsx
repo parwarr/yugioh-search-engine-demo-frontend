@@ -43,7 +43,7 @@ const Searchbar = ({ placeholder, data }: Props) => {
       </div>
       {filteredData && filteredData.length != 0 ? (
         <div className='absolute mt-3 mx-auto p-4 w-[420px] rounded-xl bg-slate-400 shadow-md overflow-hidden z-10'>
-          {filteredData.map(result => (
+          {filteredData.slice(0, 20).map(result => (
             <a
               key={result.id}
               href={`/name?name=${result.name}`}
