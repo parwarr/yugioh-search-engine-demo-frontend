@@ -34,11 +34,11 @@ const OneCard = () => {
   ];
 
   return (
-    <div className='flex justify-center items-center min-h-screen bg-gray-900'>
-      <div className='flex flex-col md:flex-row max-w-4xl bg-gray-800 text-white rounded-3xl p-5 border border-slate-50 shadow-xl'>
+    <div className='flex justify-center items-center min-h-screen'>
+      <div className='flex flex-col md:flex-row max-w-4xl bg-transparent bg-gray-800  text-white rounded-3xl p-5 border border-slate-50 shadow-xl'>
         <div className='md:w-1/2 flex justify-center'>
           <img
-            className='w-[80%] h-auto object-cover rounded-lg shadow-lg hover:scale-110 transition duration-300 ease-in-out'
+            className='w-[80%] h-auto object-cover rounded-lg shadow-lg hover:scale-150 transition duration-300 ease-in-out'
             src={card.cardImagePresignedUrl}
             alt={FormatName(card.name)}
           />
@@ -48,7 +48,7 @@ const OneCard = () => {
             <h3 className='text-slate-50 text-3xl font-bold mb-3'>{FormatName(card.name)}</h3>
             <div className='grid grid-cols-2 gap-4'>
               {cardStats.map(stat => (
-                <div key={stat.title} className='flex items-center bg-gray-700 bg-opacity-50 rounded p-2'>
+                <div key={stat.title} className='flex items-center bg-gray-700 bg-opacity-15 rounded p-2'>
                   <div>
                     <div className='text-sm text-gray-400'>{stat.title}</div>
                     <div className='text-lg text-white'>{stat.value}</div>

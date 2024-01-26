@@ -3,6 +3,7 @@ import { MonsterAttributeEnum } from '../enum/MonsterAttributeEnum/Monster-attri
 import { MonsterTypeEnum } from '../enum/MonsterTypeEnum/Monster-type.enum';
 
 export type CardItemType = {
+  id: string;
   name: string;
   desc: string;
   level: number;
