@@ -1,28 +1,28 @@
-# Yu-Gi-OH Card Database
+# Yu-Gi-Oh Card Database
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Description
 
-If you load the page you get an overwiev of all cards:
+When you load the page, you get an overview of all the cards:
 
 ![HomePage](image.png)
 
-Also you have the abillity to search for specific cards:
+Additionally, you have the ability to search for specific cards:
 
 ![Search](image-1.png)
 
-And if you select one Card you get the stats of the card:
+And if you select a card, you can view its stats:
 ![CardStats](image-2.png)
 
 ## Installation
 
-First clone the backend for this Website: https://github.com/parwarr/yugioh-search-engine-demo-
+First, clone the backend for this website: https://github.com/parwarr/yugioh-search-engine-demo-
 
-Then clone this repo.
+Then, clone this repository.
 
-run npm i
+Run `npm install`
 
-run npm run dev
+Run `npm run dev`
 
-There you go :D
+There you go! :D
