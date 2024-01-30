@@ -17,12 +17,12 @@ And if you select a card, you can view its stats:
 
 ## Installation
 
-First, clone the backend for this website: https://github.com/parwarr/yugioh-search-engine-demo-
+1. Clone the backend for this website: https://github.com/parwarr/yugioh-search-engine-demo-
 
-Then, clone this repository.
+2. Then, clone this repository.
 
-Run `npm install`
+3. Run `npm install`
 
-Run `npm run dev`
+4. Run `npm run dev`
 
 There you go! :D
